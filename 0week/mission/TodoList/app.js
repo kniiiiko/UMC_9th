@@ -13,24 +13,24 @@ window.onload = function () {
 
   if (savedTodos) {
     todos = JSON.parse(savedTodos);
-    todos.forEach((item) => addTodoToUI(item.text));
+    todos.forEach((item) => addTodo(item.text));
   }
 
   if (savedDoneTodos) {
     doneTodos = JSON.parse(savedDoneTodos);
-    doneTodos.forEach((item) => addDoneToUI(item.text));
+    doneTodos.forEach((item) => completeTodo(item.text));
   }
 };
 
-// 할 일 UI에 추가하는 함수
-function addTodoToUI(text) {
+// 할 일에 추가하는 함수
+function addTodo(text) {
   const newItem = createItemElement(text, "완료");
   todoSection.appendChild(newItem);
 }
 
-// 해낸 일 UI에 추가하는 함수
-function addDoneToUI(text) {
-  const newItem = createItemElement(text, "취소");
+// 해낸 일에 추가하는 함수
+function completeTodo(text) {
+  const newItem = createItemElement(text, "삭제");
   doneSection.appendChild(newItem);
 }
 
@@ -57,12 +57,11 @@ function createItemElement(text, btnText) {
 
       todoSection.removeChild(item);
       doneSection.appendChild(item);
-      button.textContent = "취소";
-    } else if (button.textContent === "취소") {
+      button.textContent = "삭제";
+    } else if (button.textContent === "삭제") {
       // 해낸 일 목록에서 삭제
       doneTodos = doneTodos.filter((t) => t.text !== text);
       updateStorage();
-
       doneSection.removeChild(item);
     }
   });
@@ -88,7 +87,7 @@ input.addEventListener("keydown", function (event) {
     todos.push({ text });
     updateStorage();
 
-    addTodoToUI(text);
+    addTodo(text);
 
     input.value = "";
   }
