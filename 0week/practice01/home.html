@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nav Example</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+      }
+      .nav {
+        background-color: rgb(183, 183, 183);
+        width: 400px;
+        height: 60px;
+        color: white;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 35px;
+      }
+      .nav__button {
+        position: relative;
+        padding: 12px 20px;
+        color: white;
+        border-radius: 35px;
+        transition: color 0.2s ease;
+        background-color: transparent;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .nav__button:hover {
+        color: rgb(203, 203, 203);
+      }
+      .nav__button--selected {
+        background-color: rgb(22, 174, 22);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav">
+      <a href="home.html" class="nav__button nav__button--selected">Logo</a>
+      <a href="projects.html" class="nav__button">Projects</a>
+      <a href="members.html" class="nav__button">Members</a>
+      <a href="faq.html" class="nav__button">FAQ</a>
+    </div>
+  </body>
+</html>
